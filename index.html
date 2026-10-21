@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matematika Bab 3: Rasio - Kelas 6 SD</title>
+    <style>
+        :root {
+            --cyan-primary: #00A8CC;
+            --cyan-dark: #007A99;
+            --teal-bg: #E6F7F9;
+            --tosca: #00C49F;
+            --yellow-gold: #FFBB28;
+            --yellow-light: #FFF8E7;
+            --coral-red: #FF8042;
+            --text-dark: #2C3E50;
+            --white: #FFFFFF;
+            --card-shadow: 0 8px 20px rgba(0, 168, 204, 0.15);
+            --radius-lg: 20px;
+            --radius-md: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', 'Fredoka', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: #F0F9FB;
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        /* Container & Header */
+        .app-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--cyan-primary), var(--tosca));
+            color: var(--white);
+            padding: 20px 15px;
+            border-radius: var(--radius-lg);
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            background: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        /* Navigation Grid */
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .portal-card {
+            background: var(--white);
+            border: 2px solid #E0F2F1;
+            border-radius: var(--radius-md);
+            padding: 12px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+        }
+
+        .portal-card:hover, .portal-card.active {
+            transform: translateY(-3px);
+            border-color: var(--cyan-primary);
+            box-shadow: var(--card-shadow);
+            background: var(--yellow-light);
+        }
+
+        .portal-card .icon {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .portal-card .title {
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: var(--cyan-dark);
+        }
+
+        .portal-card.assessment-card {
+            grid-column: span 2;
+            background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+            border-color: #FFB74D;
+        }
+
+        .portal-card.assessment-card .title {
+            color: #E65100;
+            font-size: 1rem;
+        }
+
+        /* Content Display Area */
+        .content-area {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--card-shadow);
+            border: 2px solid #B2EBF2;
+        }
+
+        .portal-content {
+            display: none;
+        }
+
+        .portal-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2.portal-header {
+            color: var(--cyan-dark);
+            font-size: 1.3rem;
+            border-bottom: 3px dashed var(--yellow-gold);
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Visual Illustration Boxes */
+        .illustration-box {
+            background-color: var(--teal-bg);
+            border-radius: var(--radius-md);
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            border: 1px dashed var(--cyan-primary);
+        }
+
+        .illustration-box svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Text & Concept Formatting */
+        .concept-badge {
+            background: var(--yellow-gold);
+            color: #5D4037;
+            padding: 3px 8px;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .info-box {
+            background: #E8F5E9;
+            border-left: 4px solid var(--tosca);
+            padding: 10px 14px;
+            margin: 10px 0;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            font-size: 0.92rem;
+        }
+
+        .highlight-text {
+            color: var(--cyan-dark);
+            font-weight: bold;
+        }
+
+        .key-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.88rem;
+        }
+
+        .key-table th, .key-table td {
+            border: 1px solid #B2DFDB;
+            padding: 8px 10px;
+            text-align: left;
+        }
+
+        .key-table th {
+            background-color: var(--cyan-primary);
+            color: white;
+        }
+
+        .key-table tr:nth-child(even) {
+            background-color: #F2FBFB;
+        }
+
+        /* Form Controls & Quiz Elements */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--cyan-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #B2EBF2;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--cyan-primary);
+        }
+
+        .btn {
+            background: linear-gradient(135deg, var(--tosca), #009688);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-warning {
+            background: linear-gradient(135deg, var(--yellow-gold), #FF9800);
+            color: #3E2723;
+        }
+
+        .question-card {
+            background: #FAFAFA;
+            border: 1px solid #E0E0E0;
+            border-radius: var(--radius-md);
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .question-title {
+            font-weight: bold;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .option-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .option-label {
+            background: white;
+            border: 1px solid #CFD8DC;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .option-label:hover {
+            background: #ECEFF1;
+        }
+
+        .option-label input {
+            accent-color: var(--cyan-primary);
+        }
+
+        .essay-input {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #B0BEC5;
+            border-radius: 6px;
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+
+        .sub-q {
+            margin-top: 10px;
+            padding-left: 10px;
+            border-left: 2px solid var(--yellow-gold);
+        }
+
+        /* Result View */
+        .result-box {
+            text-align: center;
+            background: #FFFDE7;
+            border: 2px solid var(--yellow-gold);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .score-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--cyan-dark);
+            margin: 10px 0;
+        }
+
+        .timestamp {
+            font-size: 0.85rem;
+            color: #78909C;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        .screenshot-alert {
+            background: #FFEBEE;
+            border: 2px dashed #EF5350;
+            color: #C62828;
+            padding: 15px;
+            border-radius: var(--radius-md);
+            margin: 20px 0;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .feedback-card {
+            background: white;
+            border-left: 4px solid var(--coral-red);
+            padding: 10px 12px;
+            margin: 8px 0;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        .feedback-card.correct {
+            border-left-color: var(--tosca);
+        }
+
+        .badge-status {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: white;
+            margin-right: 5px;
+        }
+
+        .badge-wrong { background: var(--coral-red); }
+        .badge-partial { background: var(--yellow-gold); color: #333; }
+        .badge-right { background: var(--tosca); }
+
+        /* Navigation Buttons Bottom */
+        .nav-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            gap: 10px;
+        }
+
+        .btn-nav {
+            background: #CFD8DC;
+            color: #37474F;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <!-- Header -->
+    <header>
+        <h1>Matematika Bab 3: Rasio</h1>
+        <p>Kelas 6 SD - Pembelajaran Interaktif</p>
+    </header>
+
+    <!-- Portal Navigation Grid -->
+    <div class="portal-grid">
+        <div class="portal-card active" onclick="switchPortal(1)">
+            <span class="icon">💡</span>
+            <span class="title">Portal 1<br>Konsep Rasio</span>
+        </div>
+        <div class="portal-card" onclick="switchPortal(2)">
+            <span class="icon">🔀</span>
+            <span class="title">Portal 2<br>Bagian : Bagian</span>
+        </div>
+        <div class="portal-card" onclick="switchPortal(3)">
+            <span class="icon">🌐</span>
+            <span class="title">Portal 3<br>Bagian : Total</span>
+        </div>
+        <div class="portal-card" onclick="switchPortal(4)">
+            <span class="icon">🔍</span>
+            <span class="title">Portal 4<br>Membedakan Jenis</span>
+        </div>
+        <div class="portal-card assessment-card" onclick="switchPortal(5)">
+            <span class="icon">📝</span>
+            <span class="title">Portal 5: Latihan Pemahaman (Ujian)</span>
+        </div>
+    </div>
+
+    <!-- Main Display Container -->
+    <div class="content-area">
+
+        <!-- ================= PORTAL 1 ================= -->
+        <div id="portal-1" class="portal-content active">
+            <h2 class="portal-header">💡 Portal 1: Mengingat Konsep Rasio</h2>
+            
+            <p><span class="concept-badge">Definisi</span></p>
+            <p><strong>Rasio</strong> adalah perbandingan antara dua besaran atau nilai. Dalam matematika, rasio dituliskan menggunakan tanda titik dua (<strong>:</strong>).</p>
+            
+            <!-- Visual Illustration 1: Siswa L & P -->
+            <div class="illustration-box">
+                <svg viewBox="0 0 320 120" width="100%" height="120">
+                    <!-- 4 Laki-laki (Biru) -->
+                    <g transform="translate(10,10)">
+                        <circle cx="20" cy="20" r="12" fill="#42A5F5"/>
+                        <rect x="12" y="35" width="16" height="25" rx="3" fill="#1E88E5"/>
+                        <text x="20" y="75" font-size="10" text-anchor="middle" fill="#333">Siswa L</text>
+                    </g>
+                    <g transform="translate(50,10)">
+                        <circle cx="20" cy="20" r="12" fill="#42A5F5"/>
+                        <rect x="12" y="35" width="16" height="25" rx="3" fill="#1E88E5"/>
+                        <text x="20" y="75" font-size="10" text-anchor="middle" fill="#333">Siswa L</text>
+                    </g>
+                    <g transform="translate(90,10)">
+                        <circle cx="20" cy="20" r="12" fill="#42A5F5"/>
+                        <rect x="12" y="35" width="16" height="25" rx="3" fill="#1E88E5"/>
+                        <text x="20" y="75" font-size="10" text-anchor="middle" fill="#333">Siswa L</text>
+                    </g>
+                    <g transform="translate(130,10)">
+                        <circle cx="20" cy="20" r="12" fill="#42A5F5"/>
+                        <rect x="12" y="35" width="16" height="25" rx="3" fill="#1E88E5"/>
+                        <text x="20" y="75" font-size="10" text-anchor="middle" fill="#333">Siswa L</text>
+                    </g>
+
+                    <!-- Separator -->
+                    <line x1="175" y1="10" x2="175" y2="80" stroke="#B0BEC5" stroke-dasharray="4" stroke-width="2"/>
+
+                    <!-- 6 Perempuan (Pink) -->
+                    <g transform="translate(185,5)">
+                        <circle cx="10" cy="15" r="9" fill="#EC407A"/>
+                        <polygon points="10,25 2,45 18,45" fill="#D81B60"/>
+                    </g>
+                    <g transform="translate(205,5)">
+                        <circle cx="10" cy="15" r="9" fill="#EC407A"/>
+                        <polygon points="10,25 2,45 18,45" fill="#D81B60"/>
+                    </g>
+                    <g transform="translate(225,5)">
+                        <circle cx="10" cy="15" r="9" fill="#EC407A"/>
+                        <polygon points="10,25 2,45 18,45" fill="#D81B60"/>
+                    </g>
+                    <g transform="translate(245,5)">
+                        <circle cx="10" cy="15" r="9" fill="#EC407A"/>
+                        <polygon points="10,25 2,45 18,45" fill="#D81B60"/>
+                    </g>
+                    <g transform="translate(265,5)">
+                        <circle cx="10" cy="15" r="9" fill="#EC407A"/>
+                        <polygon points="10,25 2,45 18,45" fill="#D81B60"/>
+                    </g>
+                    <g transform="translate(285,5)">
+                        <circle cx="10" cy="15" r="9" fill="#EC407A"/>
+                        <polygon points="10,25 2,45 18,45" fill="#D81B60"/>
+                    </g>
+                    <text x="240" y="75" font-size="10" text-anchor="middle" fill="#333">6 Siswa Perempuan</text>
+                </svg>
+                <div style="font-size:0.85rem; font-weight:bold; color:var(--cyan-dark); margin-top:5px;">
+                    4 Siswa Laki-laki : 6 Siswa Perempuan
+                </div>
+            </div>
+
+            <div class="info-box">
+                <strong>Contoh Awal:</strong><br>
+                Di kelas terdapat 4 siswa laki-laki dan 6 siswa perempuan.<br>
+                • Rasio siswa laki-laki terhadap perempuan = <span class="highlight-text">4 : 6</span>
+            </div>
+
+            <div class="info-box" style="background:#FFF8E7; border-left-color: var(--yellow-gold);">
+                <strong>Membandingkan dengan Seluruh Siswa:</strong><br>
+                • Total seluruh siswa = 4 + 6 = <strong>10 siswa</strong>.<br>
+                • Rasio siswa laki-laki terhadap seluruh siswa = <span class="highlight-text">4 : 10</span>
+            </div>
+
+            <p style="margin-top: 10px; background: #FFEBEE; padding: 10px; border-radius: 8px; font-size: 0.9rem;">
+                ⚠️ <strong>KESIMPULAN PENTING:</strong> Urutan penyebutan sangat menentukan perbandingan rasio! Angka yang disebut pertama harus ditulis di depan.
+            </p>
+
+            <div class="nav-actions">
+                <div></div>
+                <button class="btn-nav" onclick="switchPortal(2)">Lanjut Portal 2 ➔</button>
+            </div>
+        </div>
+
+        <!-- ================= PORTAL 2 ================= -->
+        <div id="portal-2" class="portal-content">
+            <h2 class="portal-header">🔀 Portal 2: Rasio Bagian Terhadap Bagian</h2>
+            
+            <p><span class="concept-badge">Konsep Utama</span></p>
+            <p><strong>Rasio Bagian terhadap Bagian</strong> adalah membandingkan satu kelompok benda/bagian langsung dengan kelompok benda/bagian lainnya (bukan dengan total keseluruhan).</p>
+
+            <!-- Visual Illustration 2: Kelereng -->
+            <div class="illustration-box">
+                <svg viewBox="0 0 300 100" width="100%" height="100">
+                    <!-- 8 Kelereng Merah -->
+                    <g transform="translate(10,20)">
+                        <circle cx="10" cy="10" r="8" fill="#E53935"/>
+                        <circle cx="30" cy="10" r="8" fill="#E53935"/>
+                        <circle cx="50" cy="10" r="8" fill="#E53935"/>
+                        <circle cx="70" cy="10" r="8" fill="#E53935"/>
+                        <circle cx="10" cy="32" r="8" fill="#E53935"/>
+                        <circle cx="30" cy="32" r="8" fill="#E53935"/>
+                        <circle cx="50" cy="32" r="8" fill="#E53935"/>
+                        <circle cx="70" cy="32" r="8" fill="#E53935"/>
+                        <text x="40" y="60" font-size="11" font-weight="bold" text-anchor="middle" fill="#C62828">8 Merah</text>
+                    </g>
+
+                    <text x="130" y="45" font-size="18" font-weight="bold" fill="#78909C">VS</text>
+
+                    <!-- 5 Kelereng Biru -->
+                    <g transform="translate(170,20)">
+                        <circle cx="10" cy="10" r="8" fill="#1E88E5"/>
+                        <circle cx="30" cy="10" r="8" fill="#1E88E5"/>
+                        <circle cx="50" cy="10" r="8" fill="#1E88E5"/>
+                        <circle cx="20" cy="32" r="8" fill="#1E88E5"/>
+                        <circle cx="40" cy="32" r="8" fill="#1E88E5"/>
+                        <text x="30" y="60" font-size="11" font-weight="bold" text-anchor="middle" fill="#1565C0">5 Biru</text>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="info-box">
+                <strong>Contoh 1 (Kelereng):</strong><br>
+                Terdapat 8 kelereng merah dan 5 kelereng biru.<br>
+                • Rasio kelereng <strong>merah : biru</strong> = <span class="highlight-text">8 : 5</span><br>
+                • Rasio kelereng <strong>biru : merah</strong> = <span class="highlight-text">5 : 8</span>
+            </div>
+
+            <div class="info-box">
+                <strong>Contoh 2 (Siswa Kelas):</strong><br>
+                • Rasio laki-laki : perempuan = <span class="highlight-text">4 : 6</span><br>
+                • Rasio perempuan : laki-laki = <span class="highlight-text">6 : 4</span>
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn-nav" onclick="switchPortal(1)">⬅ Portal 1</button>
+                <button class="btn-nav" onclick="switchPortal(3)">Lanjut Portal 3 ➔</button>
+            </div>
+        </div>
+
+        <!-- ================= PORTAL 3 ================= -->
+        <div id="portal-3" class="portal-content">
+            <h2 class="portal-header">🌐 Portal 3: Rasio Bagian Terhadap Keseluruhan</h2>
+
+            <p><span class="concept-badge">Langkah Penting</span></p>
+            <p>Untuk menghitung perbandingan ini, <strong>WAJIB menghitung jumlah total (keseluruhan) benda terlebih dahulu!</strong></p>
+
+            <!-- Visual Illustration 3: Keranjang Buah -->
+            <div class="illustration-box">
+                <svg viewBox="0 0 320 120" width="100%" height="120">
+                    <!-- Keranjang -->
+                    <path d="M 30 50 L 290 50 L 260 105 L 60 105 Z" fill="#D7CCC8" stroke="#8D6E63" stroke-width="3"/>
+                    
+                    <!-- 7 Apel Merah -->
+                    <g transform="translate(45,25)">
+                        <circle cx="10" cy="10" r="8" fill="#E53935"/><circle cx="28" cy="10" r="8" fill="#E53935"/><circle cx="46" cy="10" r="8" fill="#E53935"/><circle cx="64" cy="10" r="8" fill="#E53935"/>
+                        <circle cx="19" cy="25" r="8" fill="#E53935"/><circle cx="37" cy="25" r="8" fill="#E53935"/><circle cx="55" cy="25" r="8" fill="#E53935"/>
+                        <text x="37" y="-2" font-size="10" font-weight="bold" fill="#E53935" text-anchor="middle">7 Apel</text>
+                    </g>
+
+                    <!-- 5 Jeruk Oranye -->
+                    <g transform="translate(130,25)">
+                        <circle cx="10" cy="10" r="8" fill="#FB8C00"/><circle cx="28" cy="10" r="8" fill="#FB8C00"/><circle cx="46" cy="10" r="8" fill="#FB8C00"/>
+                        <circle cx="19" cy="25" r="8" fill="#FB8C00"/><circle cx="37" cy="25" r="8" fill="#FB8C00"/>
+                        <text x="28" y="-2" font-size="10" font-weight="bold" fill="#EF6C00" text-anchor="middle">5 Jeruk</text>
+                    </g>
+
+                    <!-- 3 Pir Hijau -->
+                    <g transform="translate(210,25)">
+                        <circle cx="10" cy="10" r="8" fill="#7CB342"/><circle cx="28" cy="10" r="8" fill="#7CB342"/>
+                        <circle cx="19" cy="25" r="8" fill="#7CB342"/>
+                        <text x="19" y="-2" font-size="10" font-weight="bold" fill="#558B2F" text-anchor="middle">3 Pir</text>
+                    </g>
+
+                    <text x="160" y="95" font-size="12" font-weight="bold" fill="#5D4037" text-anchor="middle">Total Seluruh Buah = 7 + 5 + 3 = 15 Buah</text>
+                </svg>
+            </div>
+
+            <div class="info-box">
+                <strong>Analisis Perbandingan Buah:</strong><br>
+                • Rasio <strong>Apel : Jeruk</strong> = <span class="highlight-text">7 : 5</span> (Bagian : Bagian)<br>
+                • Rasio <strong>Apel : Seluruh Buah</strong> = <span class="highlight-text">7 : 15</span> (Bagian : Keseluruhan)<br>
+                • Rasio <strong>Jeruk : Seluruh Buah</strong> = <span class="highlight-text">5 : 15</span> (Bagian : Keseluruhan)
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn-nav" onclick="switchPortal(2)">⬅ Portal 2</button>
+                <button class="btn-nav" onclick="switchPortal(4)">Lanjut Portal 4 ➔</button>
+            </div>
+        </div>
+
+        <!-- ================= PORTAL 4 ================= -->
+        <div id="portal-4" class="portal-content">
+            <h2 class="portal-header">🔍 Portal 4: Cara Membedakan Jenis Rasio</h2>
+
+            <p>Perhatikan kata kunci pertanyaan untuk menentukan jenis rasio!</p>
+
+            <table class="key-table">
+                <thead>
+                    <tr>
+                        <th>Pertanyaan Soal</th>
+                        <th>Jenis Rasio</th>
+                        <th>Hasil</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rasio apel terhadap jeruk?</td>
+                        <td>Bagian : Bagian</td>
+                        <td><strong>7 : 5</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Rasio apel terhadap <em>seluruh</em> buah?</td>
+                        <td>Bagian : Keseluruhan</td>
+                        <td><strong>7 : 15</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="info-box" style="background:#FFF8E7; border-left-color: var(--yellow-gold);">
+                <strong>🌟 CATATAN EMAS:</strong><br>
+                Jika dalam soal terdapat kata kunci: <span style="color:#D81B60; font-weight:bold;">"seluruh", "semua", atau "jumlah keseluruhan"</span>, maka kamu <strong>harus menjumlahkan semua bagian terlebih dahulu!</strong>
+            </div>
+
+            <div class="info-box">
+                <strong>💡 Menyederhanakan Rasio:</strong><br>
+                Sama seperti pecahan, rasio bisa disederhanakan jika kedua angka memiliki faktor pembagi yang sama.<br>
+                Contoh: Rasio jeruk terhadap seluruh buah adalah <strong>5 : 15</strong>.<br>
+                Jika kedua angka dibagi 5, bentuk sederhananya menjadi <span class="highlight-text">1 : 3</span>.
+            </div>
+
+            <div class="nav-actions">
+                <button class="btn-nav" onclick="switchPortal(3)">⬅ Portal 3</button>
+                <button class="btn-nav" style="background:var(--yellow-gold); color:#333;" onclick="switchPortal(5)">Mulai Latihan 📝</button>
+            </div>
+        </div>
+
+        <!-- ================= PORTAL 5 ================= -->
+        <div id="portal-5" class="portal-content">
+            <h2 class="portal-header">📝 Portal 5: Latihan Pemahaman</h2>
+
+            <!-- Identity Form -->
+            <div id="identity-section">
+                <div class="info-box" style="background:#E3F2FD; border-left-color:var(--cyan-primary);">
+                    Silakan isi nama lengkapmu sebelum memulai latihan pemahaman.
+                </div>
+                <div class="form-group">
+                    <label for="student-name">Nama Lengkap Siswa:</label>
+                    <input type="text" id="student-name" class="form-control" placeholder="Ketik nama lengkap di sini..." autocomplete="off">
+                </div>
+                <button class="btn btn-warning" onclick="startAssessment()">🚀 Mulai Mengerjakan Latihan</button>
+            </div>
+
+            <!-- Quiz Section -->
+            <div id="quiz-section" style="display: none;">
+                <div style="background:var(--yellow-light); padding:10px; border-radius:8px; margin-bottom:15px; font-weight:bold; font-size:0.85rem;">
+                    👤 Siswa: <span id="display-student-name" style="color:var(--cyan-dark);"></span>
+                </div>
+
+                <form id="quiz-form">
+                    <!-- BAGIAN A: PILIHAN GANDA -->
+                    <h3 style="color:var(--cyan-dark); margin: 15px 0 10px 0; border-bottom:2px solid #B2EBF2;">
+                        BAGIAN A: PILIHAN GANDA (10 Soal @4 Poin)
+                    </h3>
+
+                    <!-- Soal 1 -->
+                    <div class="question-card">
+                        <div class="question-title">1. Di sebuah kelompok belajar terdapat 8 anak laki-laki dan 12 anak perempuan. Rasio siswa laki-laki terhadap siswa perempuan adalah ....</div>
+                        <div class="option-group">
+                            <label class="option-label"><input type="radio" name="q1" value="A"> A. 8 : 12</label>
+                            <label class="option-label"><input type="radio" name="q1" value="B"> B. 12 : 8</label>
+                            <label class="option-label"><input type="radio" name="q1" value="C"> C. 8 : 20</label>
+                            <label class="option-label"><input type="radio" name="q1" value="D"> D. 12 : 20</label>
+                        </div>
+                    </div>
+
+                    <!-- Soal 2 -->
+                    <div class="question-card">
+                        <div class="question-title">2. Di dalam piring terdapat 5 buah apel dan 7 buah jeruk. Rasio buah apel terhadap seluruh buah di piring adalah ....</div>
+                        <div class="option-group">
+                            <label class="option-label"><input type="radio" name="q2" value="A"> A. 5 : 7</label>
+                            <label class="option-label"><input type="radio" name="q2" value="B"> B. 7 : 5</label>
+                            <label class="option-label"><input type="radio" name="q2" value="C"> C. 5 : 12</label>
+                            <label class="option-label"><input type="radio" name="q2" value="D"> D. 7 : 12</label>
+                        </div>
+                    </div>
+
+                    <!-- Soal 3 -->
+                    <div class="question-card">
+                        <div class="question-title">3. Dodi memiliki 6 pensil warna merah dan 4 pensil warna biru. Rasio pensil warna biru terhadap pensil warna merah adalah ....</div>
+                        <div class="option-group">
+                            <label class="option-label"><input type="radio" name="q3" value="A"> A. 6 : 4</label>
+                            <label class="option-label"><input type="radio" name="q3" value="B"> B. 4 : 6</label>
+                            <label class="option-label"><input type="radio" name="q3" value="C"> C. 4 : 10</label>
+                            <label class="option-label"><input type="radio" name="q3" value="D"> D. 6 : 10</label>
+                        </div>
+                    </div>
+
+                    <!-- Soal 4 -->
+                    <div class="question-card">
+                        <div class="question-title">4. Dari 25 siswa kelas 6, sebanyak 10 siswa membawa bekal dan sisanya tidak. Rasio siswa yang membawa bekal terhadap seluruh siswa adalah ....</div>
+                        <div class="option-group">
+                            <label class="option-label"><input type="radio" name="q4" value="A"> A. 10 : 15</label>
+                            <label class="option-label"><input type="radio" name="q4" value="B"> B. 15 : 10</label>
+                            <label class="option-label"><input type="radio" name="q4" value="C"> C. 10 : 25</label>
+                            <label class="option-label"><input type="radio" name="q4" value="D"> D. 15 : 25</label>
+                        </div>
+                    </div>
+
+                    <!-- Soal 5 -->
+                    <div class="question-card">
+                        <div class="question-title">5. Sebuah kotak berisi 3 bola merah, 4 bola kuning, dan 5 bola hijau. Rasio bola kuning terhadap bola hijau adalah ....</div>
+                        <div class="option-group">
+                            <label class="option-label"><input type="radio" name="q5" value="A"> A. 4 : 5</label>
+                            <label class="option-label"><input type="radio" name="q5" value="B"> B. 5 : 4</label>
+                            <label class="option-label"><input type="radio" name="q5" value="C"> C. 4 : 12</label>
+                            <label class="option-label"><input type="radio" name="q5" value="D"> D. 3 : 5</label>
+                        </div>
+                    </div>
+
+                    <!-- Soal 6 -->
+                    <div class="question-card">
+                        <div class="question-title">6. Di perpustakaan mini terdapat 9 buku cerita dan 6 buku pelajaran. Rasio buku pelajaran terhadap buku cerita adalah ....</div>
+                        <div class="option-group">
+                            <label class="option-label"><input type="radio" name="q6" value="A"> A. 9 : 6</label>
+                            <label class="option-label"><input type="radio" name="q6" value="B"> B. 6 : 9</label>
+                            <label class="option-label"><input type="radio" name="q6" value="C"> C. 6 : 15</label>
+                            <label class="option-label"><input type="radio" name="q6" value="D"> D. 9 : 15</label>
+                        </div>
+                    </div>
+
+                    <!-- Soal 7 -->
+                    <div class="question-card">
+                        <div class="question-title">7. Keranjang buah berisi 8 buah mangga dan 6 buah jeruk. Rasio buah jeruk terhadap seluruh buah di keranjang adalah ....</div>
+                        <div class="option-group">
+                            <label class="option-label"><input type="radio" name="q7" value="A"> A. 6 : 8</label>
+                            <label class="option-label"><input type="radio" name="q7" value="B"> B. 8 : 6</label>
+                            <label class="option-label"><input type="radio" name="q7" value="C"> C. 6 : 14</label>
+                            <label class="option-label"><input type="radio" name="q7" value="D"> D. 8 : 14</label>
+                        </div>
+                    </div>
+
+                    <!-- Soal 8 -->
+                    <div class="question-card">
+                        <div class="question-title">8. Di taman terdapat 7 siswa laki-laki, 8 siswa perempuan, dan 5 orang tutor. Rasio siswa perempuan terhadap seluruh orang di taman adalah ....</div>
+                        <div class="option-group">
+                            <label class="option-label"><input type="radio" name="q8" value="A"> A. 8 : 7</label>
+                            <label class="option-label"><input type="radio" name="q8" value="B"> B. 8 : 15</label>
+                            <label class="option-label"><input type="radio" name="q8" value="C"> C. 8 : 20</label>
+                            <label class="option-label"><input type="radio" name="q8" value="D"> D. 15 : 20</label>
+                        </div>
+                    </div>
+
+                    <!-- Soal 9 -->
+                    <div class="question-card">
+                        <div class="question-title">9. Dalam wadah terdapat 5 bola merah, 3 bola biru, dan 4 bola putih. Rasio bola merah terhadap seluruh bola adalah ....</div>
+                        <div class="option-group">
+                            <label class="option-label"><input type="radio" name="q9" value="A"> A. 5 : 3</label>
+                            <label class="option-label"><input type="radio" name="q9" value="B"> B. 5 : 7</label>
+                            <label class="option-label"><input type="radio" name="q9" value="C"> C. 5 : 12</label>
+                            <label class="option-label"><input type="radio" name="q9" value="D"> D. 12 : 5</label>
+                        </div>
+                    </div>
+
+                    <!-- Soal 10 -->
+                    <div class="question-card">
+                        <div class="question-title">10. Sebuah rak berisi 12 buku cerita dan 8 buku pelajaran. Pernyataan berikut yang BENAR adalah ....</div>
+                        <div class="option-group">
+                            <label class="option-label"><input type="radio" name="q10" value="A"> A. Rasio buku cerita terhadap buku pelajaran adalah 8 : 12</label>
+                            <label class="option-label"><input type="radio" name="q10" value="B"> B. Rasio buku pelajaran terhadap seluruh buku adalah 8 : 12</label>
+                            <label class="option-label"><input type="radio" name="q10" value="C"> C. Rasio buku cerita terhadap seluruh buku adalah 12 : 20</label>
+                            <label class="option-label"><input type="radio" name="q10" value="D"> D. Rasio seluruh buku terhadap buku cerita adalah 12 : 20</label>
+                        </div>
+                    </div>
+
+                    <!-- BAGIAN B: URAIAN -->
+                    <h3 style="color:var(--cyan-dark); margin: 25px 0 10px 0; border-bottom:2px solid #B2EBF2;">
+                        BAGIAN B: SOAL URAIAN (5 Soal @12 Poin = Total 60 Poin)
+                    </h3>
+
+                    <!-- Soal 11 -->
+                    <div class="question-card">
+                        <div class="question-title">Soal 11 (12 Poin): Suatu kelompok belajar terdiri dari 7 siswa laki-laki dan 9 siswa perempuan.</div>
+                        <div class="sub-q">
+                            a. Tuliskan rasio siswa laki-laki terhadap siswa perempuan! (6 Poin)<br>
+                            <input type="text" id="q11a" class="essay-input" placeholder="Contoh jawaban: 7:9 atau 7 : 9">
+                        </div>
+                        <div class="sub-q">
+                            b. Tuliskan rasio siswa perempuan terhadap siswa laki-laki! (6 Poin)<br>
+                            <input type="text" id="q11b" class="essay-input" placeholder="Jawaban...">
+                        </div>
+                    </div>
+
+                    <!-- Soal 12 -->
+                    <div class="question-card">
+                        <div class="question-title">Soal 12 (12 Poin): Di meja terdapat 8 buah mangga dan 6 buah jeruk.</div>
+                        <div class="sub-q">
+                            a. Berapa jumlah seluruh buah di meja? (3 Poin)<br>
+                            <input type="text" id="q12a" class="essay-input" placeholder="Jawaban angka...">
+                        </div>
+                        <div class="sub-q">
+                            b. Tuliskan rasio buah mangga terhadap seluruh buah! (4 Poin)<br>
+                            <input type="text" id="q12b" class="essay-input" placeholder="Jawaban rasio...">
+                        </div>
+                        <div class="sub-q">
+                            c. Tuliskan rasio buah jeruk terhadap seluruh buah! (5 Poin)<br>
+                            <input type="text" id="q12c" class="essay-input" placeholder="Jawaban rasio...">
+                        </div>
+                    </div>
+
+                    <!-- Soal 13 -->
+                    <div class="question-card">
+                        <div class="question-title">Soal 13 (12 Poin): Di dalam kantong terdapat 5 bola merah, 3 bola biru, dan 4 bola putih.</div>
+                        <div class="sub-q">
+                            a. Berapakah jumlah seluruh bola di dalam kantong? (3 Poin)<br>
+                            <input type="text" id="q13a" class="essay-input" placeholder="Jawaban angka...">
+                        </div>
+                        <div class="sub-q">
+                            b. Tuliskan rasio bola biru terhadap seluruh bola! (5 Poin)<br>
+                            <input type="text" id="q13b" class="essay-input" placeholder="Jawaban rasio...">
+                        </div>
+                        <div class="sub-q">
+                            c. Mengapa rasio tersebut termasuk jenis rasio bagian terhadap keseluruhan? Jelaskan singkat! (4 Poin)<br>
+                            <input type="text" id="q13c" class="essay-input" placeholder="Penjelasanmu...">
+                        </div>
+                    </div>
+
+                    <!-- Soal 14 -->
+                    <div class="question-card">
+                        <div class="question-title">Soal 14 (12 Poin): Sebuah lemari berisi 12 buku cerita dan 8 buku pelajaran.</div>
+                        <div class="sub-q">
+                            a. Tuliskan rasio buku cerita terhadap buku pelajaran! (4 Poin)<br>
+                            <input type="text" id="q14a" class="essay-input" placeholder="Jawaban rasio...">
+                        </div>
+                        <div class="sub-q">
+                            b. Tuliskan rasio buku pelajaran terhadap seluruh buku! (4 Poin)<br>
+                            <input type="text" id="q14b" class="essay-input" placeholder="Jawaban rasio...">
+                        </div>
+                        <div class="sub-q">
+                            c. Jelaskan perbedaan kedua jenis rasio pada poin (a) dan (b) di atas! (4 Poin)<br>
+                            <input type="text" id="q14c" class="essay-input" placeholder="Penjelasan singkat...">
+                        </div>
+                    </div>
+
+                    <!-- Soal 15 -->
+                    <div class="question-card">
+                        <div class="question-title">Soal 15 (12 Poin): Di kebun terdapat 6 bunga mawar, 4 bunga melati, dan 10 bunga matahari. Seorang siswa menjawab bahwa rasio bunga melati terhadap seluruh bunga adalah 4 : 16.</div>
+                        <div class="sub-q">
+                            a. Tuliskan rasio bunga mawar terhadap bunga melati! (3 Poin)<br>
+                            <input type="text" id="q15a" class="essay-input" placeholder="Jawaban rasio...">
+                        </div>
+                        <div class="sub-q">
+                            b. Tuliskan rasio bunga melati terhadap seluruh bunga yang benar! (4 Poin)<br>
+                            <input type="text" id="q15b" class="essay-input" placeholder="Jawaban rasio benar...">
+                        </div>
+                        <div class="sub-q">
+                            c. Apakah jawaban siswa tersebut benar? Jika salah, jelaskan di mana letak kesalahannya! (5 Poin)<br>
+                            <input type="text" id="q15c" class="essay-input" placeholder="Analisis & alasanmu...">
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn btn-warning" style="margin-top:20px;" onclick="submitQuiz()">
+                        ✅ Selesaikan & Kirim Nilai
+                    </button>
+                </form>
+            </div>
+
+            <!-- Result Section -->
+            <div id="result-section" style="display: none;">
+                <div class="result-box">
+                    <h2>HASIL LATIHAN PEMAHAMAN</h2>
+                    <p style="font-weight:bold; margin-top:5px;" id="res-student-name">Nama Siswa</p>
+                    <div class="score-display" id="res-total-score">0</div>
+                    <p id="res-score-detail" style="font-size:0.9rem; color:#555;">(PG: 0/40 | Uraian: 0/60)</p>
+                    <div class="timestamp" id="res-timestamp">Selesai Mengerjakan: -</div>
+                </div>
+
+                <div class="screenshot-alert">
+                    📸 <strong>HARAP SCREENSHOT HALAMAN HASIL INI</strong><br>
+                    (Yang memuat Nama, Nilai, & Jam Selesai) lalu kirimkan ke WhatsApp pribadi guru sebagai bukti tugas!
+                </div>
+
+                <h3 style="color:var(--cyan-dark); margin-bottom:10px;">📋 Evaluation & Pembahasan Interaktif</h3>
+                <p style="font-size:0.85rem; color:#666; margin-bottom:15px;">Pelajari kembali materi pada nomor soal yang belum mendapatkan poin penuh di bawah ini:</p>
+                
+                <div id="feedback-container"></div>
+
+                <button class="btn" style="margin-top:20px;" onclick="resetQuiz()">🔄 Mengerjakan Ulang</button>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Navigation Control
+    function switchPortal(portalNum) {
+        // Update cards visual state
+        const cards = document.querySelectorAll('.portal-card');
+        cards.forEach((card, idx) => {
+            if (idx === portalNum - 1) {
+                card.classList.add('active');
+            } else {
+                card.classList.remove('active');
+            }
+        });
+
+        // Update content display
+        const contents = document.querySelectorAll('.portal-content');
+        contents.forEach(content => content.classList.remove('active'));
+        
+        document.getElementById(`portal-${portalNum}`).classList.add('active');
+
+        // Scroll top smoothly inside mobile view
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Start Quiz
+    function startAssessment() {
+        const nameInput = document.getElementById('student-name').value.trim();
+        if (!nameInput) {
+            alert('Silakan masukkan nama lengkapmu terlebih dahulu!');
+            return;
+        }
+        document.getElementById('display-student-name').innerText = nameInput;
+        document.getElementById('identity-section').style.display = 'none';
+        document.getElementById('quiz-section').style.display = 'block';
+    }
+
+    // Helper: Normalize String for Essay Matching
+    function cleanStr(str) {
+        return str.toLowerCase().replace(/\s+/g, '').replace(/[^a-z0-9:]/g, '');
+    }
+
+    // Submit Quiz & Evaluate
+    function submitQuiz() {
+        let scorePG = 0;
+        let scoreEssay = 0;
+        let feedbackHTML = '';
+
+        // Key Answers Multiple Choice (10 Items @4 pts = 40)
+        const keysPG = {
+            q1: 'A', q2: 'C', q3: 'B', q4: 'C', q5: 'A',
+            q6: 'B', q7: 'C', q8: 'C', q9: 'C', q10: 'C'
+        };
+
+        const form = document.getElementById('quiz-form');
+
+        // 1. Evaluate Multiple Choice
+        for (let i = 1; i <= 10; i++) {
+            const selected = form[`q${i}`] ? form[`q${i}`].value : '';
+            const isCorrect = (selected === keysPG[`q${i}`]);
+            if (isCorrect) {
+                scorePG += 4;
+                feedbackHTML += `<div class="feedback-card correct"><span class="badge-status badge-right">Soal ${i} Benar</span> (PG) Pemahaman konsepmu sangat baik!</div>`;
+            } else {
+                feedbackHTML += `<div class="feedback-card"><span class="badge-status badge-wrong">Soal ${i} Perlu Dipelajari</span> (PG) Pelajari kembali urutan penyebutan & total keseluruhan pada Portal 1-3.</div>`;
+            }
+        }
+
+        // 2. Evaluate Essays (5 Items @12 pts = 60)
+        
+        // Q11 (a: 6pt, b: 6pt)
+        let q11a_val = cleanStr(document.getElementById('q11a').value);
+        let q11b_val = cleanStr(document.getElementById('q11b').value);
+        let q11_pts = 0;
+        if (q11a_val === '7:9') q11_pts += 6;
+        if (q11b_val === '9:7') q11_pts += 6;
+        scoreEssay += q11_pts;
+        feedbackHTML += buildEssayFeedback(11, q11_pts, 12, 'Membalikkan urutan perbandingan laki-laki dan perempuan.');
+
+        // Q12 (a: 3pt, b: 4pt, c: 5pt)
+        let q12a_val = cleanStr(document.getElementById('q12a').value);
+        let q12b_val = cleanStr(document.getElementById('q12b').value);
+        let q12c_val = cleanStr(document.getElementById('q12c').value);
+        let q12_pts = 0;
+        if (q12a_val === '14' || q12a_val.includes('14buah')) q12_pts += 3;
+        if (q12b_val === '8:14' || q12b_val === '4:7') q12_pts += 4;
+        if (q12c_val === '6:14' || q12c_val === '3:7') q12_pts += 5;
+        scoreEssay += q12_pts;
+        feedbackHTML += buildEssayFeedback(12, q12_pts, 12, 'Menghitung total buah (8+6=14) lalu membandingkan tiap buah dengan total.');
+
+        // Q13 (a: 3pt, b: 5pt, c: 4pt)
+        let q13a_val = cleanStr(document.getElementById('q13a').value);
+        let q13b_val = cleanStr(document.getElementById('q13b').value);
+        let q13c_val = document.getElementById('q13c').value.toLowerCase();
+        let q13_pts = 0;
+        if (q13a_val === '12' || q13a_val.includes('12bola')) q13_pts += 3;
+        if (q13b_val === '3:12' || q13b_val === '1:4') q13_pts += 5;
+        // Keyword check for reason
+        if (q13c_val.includes('seluruh') || q13c_val.includes('total') || q13c_val.includes('semua') || q13c_val.includes('dibandingkan')) q13_pts += 4;
+        scoreEssay += q13_pts;
+        feedbackHTML += buildEssayFeedback(13, q13_pts, 12, 'Bagian terhadap keseluruhan selalu membandingkan satu kelompok dengan total semua kelompok.');
+
+        // Q14 (a: 4pt, b: 4pt, c: 4pt)
+        let q14a_val = cleanStr(document.getElementById('q14a').value);
+        let q14b_val = cleanStr(document.getElementById('q14b').value);
+        let q14c_val = document.getElementById('q14c').value.toLowerCase();
+        let q14_pts = 0;
+        if (q14a_val === '12:8' || q14a_val === '3:2') q14_pts += 4;
+        if (q14b_val === '8:20' || q14b_val === '2:5') q14_pts += 4;
+        if (q14c_val.includes('bagian') || q14c_val.includes('kelompok') || q14c_val.includes('seluruh') || q14c_val.includes('total')) q14_pts += 4;
+        scoreEssay += q14_pts;
+        feedbackHTML += buildEssayFeedback(14, q14_pts, 12, 'Membedakan perbandingan antar kelompok (bagian) dengan perbandingan ke total keseluruhan.');
+
+        // Q15 (a: 3pt, b: 4pt, c: 5pt)
+        let q15a_val = cleanStr(document.getElementById('q15a').value);
+        let q15b_val = cleanStr(document.getElementById('q15b').value);
+        let q15c_val = document.getElementById('q15c').value.toLowerCase();
+        let q15_pts = 0;
+        if (q15a_val === '6:4' || q15a_val === '3:2') q15_pts += 3;
+        if (q15b_val === '4:20' || q15b_val === '1:5') q15_pts += 4;
+        // Keyword check for analysis error (total is 20, not 16 or melati not counted)
+        if (q15c_val.includes('salah') || q15c_val.includes('20') || q15c_val.includes('total') || q15c_val.includes('belum') || q15c_val.includes('melati')) q15_pts += 5;
+        scoreEssay += q15_pts;
+        feedbackHTML += buildEssayFeedback(15, q15_pts, 12, 'Siswa tersebut lupa menjumlahkan bunga melati ke dalam total seluruh bunga (6+4+10=20).');
+
+        // Total Score
+        const totalScore = scorePG + scoreEssay;
+
+        // Date and Timestamp formatting
+        const now = new Date();
+        const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+        const dayName = days[now.getDay()];
+        const timeStr = `${dayName}, ${now.getDate()}/${now.getMonth()+1}/${now.getFullYear()} - Pukul ${String(now.getHours()).padStart(2, '0')}.${String(now.getMinutes()).padStart(2, '0')} WIB/WITA`;
+
+        // Render Results
+        document.getElementById('res-student-name').innerText = "Siswa: " + document.getElementById('student-name').value;
+        document.getElementById('res-total-score').innerText = totalScore;
+        document.getElementById('res-score-detail').innerText = `(Pilihan Ganda: ${scorePG}/40 | Uraian: ${scoreEssay}/60)`;
+        document.getElementById('res-timestamp').innerText = "Selesai Mengerjakan: " + timeStr;
+        document.getElementById('feedback-container').innerHTML = feedbackHTML;
+
+        // Switch View
+        document.getElementById('quiz-section').style.display = 'none';
+        document.getElementById('result-section').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function buildEssayFeedback(qNum, getPts, maxPts, hint) {
+        if (getPts === maxPts) {
+            return `<div class="feedback-card correct"><span class="badge-status badge-right">Soal ${qNum} Sempurna (${getPts}/${maxPts} Poin)</span> Sangat tepat!</div>`;
+        } else if (getPts > 0) {
+            return `<div class="feedback-card"><span class="badge-status badge-partial">Soal ${qNum} Sebagian Benar (${getPts}/${maxPts} Poin)</span> Petunjuk Evaluasi: ${hint}</div>`;
+        } else {
+            return `<div class="feedback-card"><span class="badge-status badge-wrong">Soal ${qNum} Perlu Diperbaiki (${getPts}/${maxPts} Poin)</span> Petunjuk Evaluasi: ${hint}</div>`;
+        }
+    }
+
+    function resetQuiz() {
+        document.getElementById('quiz-form').reset();
+        document.getElementById('result-section').style.display = 'none';
+        document.getElementById('identity-section').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
+</body>
+</html>
